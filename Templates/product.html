@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
+{% block title %}About Us | Nairim's Cuties{% endblock %}
+
 {% block content %}
 
-<h1>{{ product.name }}</h1>
-
-<p>Category: {{ product.category }}</p>
-
-<p>Price: €{{ product.price }}</p>
-
-<p>{{ product.description }}</p>
+<div class="about-section">
+    <h2>💕 About Nairim's Cuties</h2>
+    <p>
+        Nairim's Cuties was born out of a love for beautiful, comfortable clothing
+        for the little ones who light up our world. Every piece is chosen with care —
+        soft fabrics, playful designs, and styles that let kids be kids.
+    </p>
+    <p>
+        Whether you're shopping for a new baby, a toddler on the move, or a little
+        fashionista, we have something made just for them.
+    </p>
+    <a href="{{ url_for('shop') }}" class="btn">Browse the Collection</a>
+</div>
 
 {% endblock %}

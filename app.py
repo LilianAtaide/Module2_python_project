@@ -29,7 +29,8 @@ products = [
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    featured = products[:3]
+    return render_template("index.html", featured=featured)
 
 
 @app.route("/shop")

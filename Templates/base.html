@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Nairm's Cuties{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 <body>
-<h1>Nairim's Cuties</h1>
+<header>
+    <span class="brand">🌸 Nairim's Cuties</span>
     <nav>
-        <a href="{{ url_for('home') }}">Home page</a>
+        <a href="{{ url_for('home') }}">Home</a>
         <a href="{{ url_for('shop') }}">Shop</a>
-        <a href="{{ url_for('product') }}">Product</a>
         <a href="{{ url_for('about') }}">About Us</a>
         <a href="{{ url_for('contact') }}">Contact</a>
     </nav>
+</header>
 
 <main>
     {% block content %}<h1>Default content</h1>{% endblock %}
 </main>
+
+<footer>
+    <p>© 2026 Nairim's Cuties · Made with 💕</p>
+</footer>
 
 </body>
 </html>

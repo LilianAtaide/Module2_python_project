@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 
+{% block title %}Home | Nairim's Cuties{% endblock %}
+
 {% block content %}
-<h1>Welcome to Nairim's Cuties</h1>
-<p>Beautiful clothes for your little ones.</p>
+
+<div class="hero">
+    <h1>Adorable clothes for your little star ✨</h1>
+    <p>Soft, stylish, and made for little ones to shine.</p>
+    <a href="{{ url_for('shop') }}" class="btn">Shop Now</a>
+</div>
+
+<h2 class="section-title">Featured Picks</h2>
+<div class="product-grid">
+    {% for item in featured %}
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+        <div class="card-body">
+            <h3>{{ item.name }}</h3>
+            <p class="category">{{ item.category }}</p>
+            <p class="price">€{{ item.price }}</p>
+            <a href="{{ url_for('product') }}" class="btn-small">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

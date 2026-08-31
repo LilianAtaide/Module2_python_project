@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Shop | Nairm's Cuties{% endblock %}
+{% block title %}Shop | Nairim's Cuties{% endblock %}
 
 {% block content %}
 
-<h1>Nairm's Cuties</h1>
+<h2 class="section-title">Our Collection</h2>
 
-<h2>Our Collection</h2>
-
-{% for product in products %}
-
+<div class="product-grid">
+    {% for item in products %}
     <div class="product-card">
+    <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+    <div class="card-body">
+        <h3>{{ item.name }}</h3>
 
-        <img src="{{ url_for('static', filename='images/' + product.image) }}"
-             alt="{{ product.name }}">
+        {% if item.price < 22 %}
+            <span class="badge">🏷️ Sale</span>
+        {% endif %}
 
-        <h3>{{ product.name }}</h3>
-
-        <p>€{{ product.price }}</p>
-
-        <p>{{ product.category }}</p>
-
+        <p class="category">{{ item.category }}</p>
+        <p class="price">€{{ item.price }}</p>
+        <a href="{{ url_for('product') }}" class="btn-small">View Details</a>
     </div>
-
-{% endfor %}
+</div>
+    {% endfor %}
+</div>
 
 {% endblock %}
