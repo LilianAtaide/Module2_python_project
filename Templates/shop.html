@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h2>Shop our products</h2>
+{% block title %}Shop | Nairm's Cuties{% endblock %}
 
-    {% for product in products %}
-        <article>
-            <h3>{{ product.name }}</h3>
-            <p>Category: {{ product.category }}</p>
-            <p>Price: €{{ product.price }}</p>
-        </article>
-    {% endfor %}
+{% block content %}
+
+<h1>Nairm's Cuties</h1>
+
+<h2>Our Collection</h2>
+
+{% for product in products %}
+
+    <div class="product-card">
+
+        <img src="{{ url_for('static', filename='images/' + product.image) }}"
+             alt="{{ product.name }}">
+
+        <h3>{{ product.name }}</h3>
+
+        <p>€{{ product.price }}</p>
+
+        <p>{{ product.category }}</p>
+
+    </div>
+
+{% endfor %}
+
 {% endblock %}
