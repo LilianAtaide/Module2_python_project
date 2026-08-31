@@ -6,6 +6,15 @@
     <title>Nairim's Cuties</title>
 </head>
 <body>
+<h1>Nairim's Cuties</h1>
+<nav>
+     <a href="{{ url_for('home') }}">Home page</a>
+     <a href="{{ url_for('shop') }}">Shop</a>
+     <a href="{{ url_for('product') }}">Product</a>
+     <a href="{{ url_for('about') }}">About</a>
+     <a href="{{ url_for('contact') }}">Contact</a>
+</nav>
+<main>{% block content %}<h1>Default content</h1>{% endblock %}</main>
 
 </body>
 </html>
