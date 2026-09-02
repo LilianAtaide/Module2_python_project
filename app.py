@@ -1,6 +1,11 @@
+import os
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
+app.secret_key = os.environ['SECRET_KEY']
+
 
 products = [
     {
@@ -68,4 +73,5 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
+    
