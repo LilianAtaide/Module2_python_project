@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
+
 <body>
-<header>
-    <span class="brand">🌸 Nairim's Cuties</span>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('shop') }}">Shop</a>
-        <a href="{{ url_for('about') }}">About Us</a>
-        <a href="{{ url_for('contact') }}">Contact</a>
-    </nav>
-</header>
+    <header>
+        <span class="brand">🌸 Nairim's Cuties</span>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('shop') }}">Shop</a>
+            <a href="{{ url_for('about') }}">About Us</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
 
-<main>
-    {% block content %}<h1>Default content</h1>{% endblock %}
-</main>
+    <main>
+        {% block content %}<h1>Default content</h1>{% endblock %}
+    </main>
 
-<footer>
-    <p>© 2026 Nairim's Cuties · Made with 💕</p>
-</footer>
+    <footer>
+        <p>© 2026 Nairim's Cuties · Made with 💕</p>
+    </footer>
 
 </body>
+
 </html>
