@@ -116,3 +116,14 @@ Locally, the app falls back to a development key automatically.
 - `{% if %}` conditional displaying a sale badge and strikethrough price
 - Dynamic URL route `/product/<int:product_id>` loading per-product data
 - Contact form using `POST` method with server-side field processing
+
+---
+
+## Sources and Acknowledgements
+
+### Images
+- `pink-dress.jpg` — sourced from [Pixabay](https://pixabay.com) (free for use, no attribution required, but included for transparency)
+- `romper.jpg` and `dungarees.jpg` — original photographs taken by the developer
+
+### Development Assistance
+This project was built with guidance from Kiro, an AI coding assistant (KiroCrew). The assistant provided code suggestions, debugging help, and deployment guidance throughout the development process. All code was written, typed, tested, and understood by the developer. The logic, structure, and problem-solving decisions were made by the developer with AI used as a learning and support tool.
