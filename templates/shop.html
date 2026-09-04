@@ -7,12 +7,14 @@
 <h2 class="section-title">Our Collection</h2>
 
 <div class="product-grid">
+    {# Loop over every product passed in from app.py #}
     {% for item in products %}
     <div class="product-card">
     <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
     <div class="card-body">
         <h3>{{ item.name }}</h3>
 
+{# Show a Sale badge and strikethrough original price for items under €22 #}
 {% if item.price < 22 %}
     <span class="badge">🏷️ Sale</span>
     <p class="price">
@@ -23,6 +25,7 @@
 {% endif %}
 
         <p class="category">{{ item.category }}</p>
+        {# Link passes the product id to the dynamic product route #}
         <p class="price">€{{ item.price }}</p>
 <a href="{{ url_for('product', product_id=item.id) }}" class="btn-small">View Details</a>
     </div>

@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}About Us | Nairim's Cuties{% endblock %}
+{% block title %}{{ product.name }} | Nairim's Cuties{% endblock %}
 
 {% block content %}
 
-<div class="about-section">
-    <h2>💕 About Nairim's Cuties</h2>
-    <p>Age range: {{ product.age_range }}</p>
-
-    <a href="{{ url_for('shop') }}" class="btn">Browse the Collection</a>
+{# Single product detail view -- product data is passed in from the dynamic route #}
+<div class="product-detail">
+    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+    <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <p class="price">€{{ product.price }}</p>
+        <p>Category: {{ product.category }}</p>
+        <p>Age range: {{ product.age_range }}</p>
+        <p>{{ product.description }}</p>
+        {# Enquiry button links to the contact page #}
+        <a href="{{ url_for('contact') }}" class="btn">Enquire Now</a>
+    </div>
 </div>
 
 {% endblock %}
