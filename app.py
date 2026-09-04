@@ -13,6 +13,7 @@ products = [
         "name": "Pink Baby Dress",
         "price": 25,
         "category": "Dresses",
+        "age_range": "1-3 months",
         "image": "pink-dress.jpg"
     },
     {
@@ -20,13 +21,16 @@ products = [
         "name": "Denim Dungarees",
         "price": 30,
         "category": "Outfits",
+        "age_range": "1-3 months",
         "image": "dungarees.jpg"
     },
     {
         "id": 3,
         "name": "Baby Romper",
         "price": 20,
+        "original_price": 28,
         "category": "Baby",
+        "age_range": "1-3 months",
         "image": "romper.jpg"
     }
 ]
@@ -43,16 +47,12 @@ def shop():
     return render_template("shop.html", products=products)
 
 
-@app.route("/product")
-def product():
-    product = {
-        "name": "Pink Floral Dress",
-        "price": 25,
-        "category": "Girls",
-        "description": "A cute and comfortable floral dress for little ones."
-    }
-
-    return render_template("product.html", product=product)
+@app.route("/product/<int:product_id>")
+def product(product_id):
+    item = next((p for p in products if p["id"] == product_id), None)
+    if item is None:
+        return "Product not found", 404
+    return render_template("product.html", product=item)
 
 @app.route("/about")
 def about():

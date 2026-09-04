@@ -13,16 +13,26 @@
 <h2 class="section-title">Featured Picks</h2>
 <div class="product-grid">
     {% for item in featured %}
-    <div class="product-card">
-        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
-        <div class="card-body">
-            <h3>{{ item.name }}</h3>
-            <p class="category">{{ item.category }}</p>
-            <p class="price">€{{ item.price }}</p>
-            <a href="{{ url_for('product') }}" class="btn-small">View Details</a>
-        </div>
+<div class="product-card">
+    <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+    <div class="card-body">
+        <h3>{{ item.name }}</h3>
+
+        {% if item.price < 22 %}
+            <span class="badge">🏷️ Sale</span>
+            <p class="price">
+                <span style="text-decoration: line-through; color: #aaa; font-size: 0.9rem;">€{{ item.original_price }}</span>
+                €{{ item.price }}
+            </p>
+        {% else %}
+   
+        {% endif %}
+
+        <p class="category">{{ item.category }}</p>
+        <a href="{{ url_for('product', product_id=item.id) }}" class="btn-small">View Details</a>
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
 </div>
 
 {% endblock %}

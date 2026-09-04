@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
 
 {% block title %}Shop | Nairim's Cuties{% endblock %}
 
@@ -13,13 +13,18 @@
     <div class="card-body">
         <h3>{{ item.name }}</h3>
 
-        {% if item.price < 22 %}
-            <span class="badge">🏷️ Sale</span>
-        {% endif %}
+{% if item.price < 22 %}
+    <span class="badge">🏷️ Sale</span>
+    <p class="price">
+        <span style="text-decoration: line-through; color: #aaa; font-size: 0.9rem;">€{{ item.original_price }}</span>
+        €{{ item.price }}
+    </p>
+
+{% endif %}
 
         <p class="category">{{ item.category }}</p>
         <p class="price">€{{ item.price }}</p>
-        <a href="{{ url_for('product') }}" class="btn-small">View Details</a>
+<a href="{{ url_for('product', product_id=item.id) }}" class="btn-small">View Details</a>
     </div>
 </div>
     {% endfor %}
